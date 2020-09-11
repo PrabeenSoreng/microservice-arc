@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <h1>Create Post</h1>
-    <PostCreate @newpost="newPost($event)" />
+    <!-- <PostCreate @newpost="newPost($event)" /> -->
+    <PostCreate />
     <hr />
     <h1>Posts</h1>
     <PostList :posts="posts" />
@@ -14,26 +15,25 @@ import PostList from "~/components/PostList";
 export default {
   components: {
     PostCreate,
-    PostList,
+    PostList
   },
   data() {
     return {
-      posts: [],
+      posts: []
     };
   },
   async created() {
     this.posts = Object.values(
-      await this.$axios.$get("http://localhost:4000/posts")
+      await this.$axios.$get("http://localhost:4002/posts")
     );
   },
   methods: {
-    newPost(newpost) {
-      this.posts = newpost;
-      console.log(newpost);
-    },
-  },
+    // newPost(newpost) {
+    //   this.posts = newpost;
+    //   console.log(newpost);
+    // }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

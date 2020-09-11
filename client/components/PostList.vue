@@ -3,7 +3,7 @@
     <div v-for="post in posts" :key="post.id" class="card" style="width: 30%, margin-bottom: 20px">
       <div class="card-body">
         <h3>{{ post.title }}</h3>
-        <CommentList :postId="post.id" />
+        <CommentList :comments="post.comments" />
         <hr />
         <CommentCreate :postId="post.id" />
       </div>
@@ -20,20 +20,10 @@ export default {
     CommentList,
   },
   data() {
-    return {
-      // comments: [],
-    };
+    return {};
   },
   props: {
     posts: Array,
   },
-  // async created() {
-  //   this.posts.map(async (post) => {
-  //     this.comments = await this.$axios.$get(
-  //       `http://localhost:4001/posts/${post.id}/comments`
-  //     );
-  //     console.log(this.comments);
-  //   });
-  // },
 };
 </script>

@@ -14,21 +14,20 @@
 export default {
   data() {
     return {
-      title: "",
+      title: ""
     };
   },
   methods: {
     async onSubmit() {
       await this.$axios.$post(`http://localhost:4000/posts`, {
-        title: this.title,
+        title: this.title
       });
-      const posts = Object.values(
-        await this.$axios.$get("http://localhost:4000/posts")
-      );
-      this.$emit("newpost", posts);
+      // const posts = Object.values(
+      //   await this.$axios.$get("http://localhost:4000/posts")
+      // );
+      // this.$emit("newpost", posts);
       this.title = "";
-    },
-  },
+    }
+  }
 };
 </script>
-
